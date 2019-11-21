@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'd1556b8646041e2e22a6faf221718585e601196c0922dedde2b9ad8261d2c2c02cbf485bca25853510513508dfd5061fb4f7ccfad80b196507ea8debf6c922be'
+  # config.secret_key = **************
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -260,7 +260,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
 
-  config.omniauth :microsoft_graph,'2937d756-4328-4fc9-83c7-a4acd86c45e6', 'un/@4Tr4-/OdzOhxaT0WFW0aFwFdh*=g', :scope => "https://graph.microsoft.com/user.read Notes.ReadWrite.All offline_access"
+  config.omniauth :microsoft_graph,'*************', '****************', :scope => "https://graph.microsoft.com/user.read Notes.ReadWrite.All offline_access"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
