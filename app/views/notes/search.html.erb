@@ -1,0 +1,94 @@
+<body class="notes_body">
+    <div class="container" id="background">
+        <% flash.each do |key, value| %>
+			<div class="<%= flash_class(key) %>">
+				<%= value %>
+			</div>
+		<% end %>
+        <div class="container" id="search_form">
+            <%= form_tag(notes_search_path, method: :get, class: "form", id: "form_filters") do %>
+                <div class="form-group row justify-content-center">
+                    <div class="col-4">
+                        <%= label_tag(:section, "Materia:") %>
+                    </div>
+                    <div class="col-4 offset-1">
+                        <%= text_field_tag(:section, nil, class: "form-control", type: "text", placeholder: "Inserisci il nome della materia...") %>
+                    </div>
+                </div>
+                <div class="form-group row justify-content-center">
+                    <div class="col-4">
+                        <%= label_tag(:page, "Titolo:") %>
+                    </div>
+                    <div class="col-4 offset-1">
+                        <%= text_field_tag(:page, nil, class: "form-control", placeholder: "Inserisci il titolo della nota...") %>
+                    </div>
+                </div>
+       <!--         <div class="form-group row justify-content-center">
+                    <div class="col-4">
+                        <%# label_tag(:date, "Data creazione:") %>
+                    </div>
+                    <div class="col-4 offset-1">
+                        <%# text_field_tag(:date, nil, class: "form-control", placeholder: "Inserisci una data...") %>
+                    </div>
+                </div> -->
+                <div class="row justify-content-center">
+                    <%= submit_tag("Cerca", :class => "btn btn-secondary btn-lg justify-content-center")%>
+                </div>
+            <%end%>
+        </div>
+        <div class="container" id="show_notes_list">
+            <% if @sections_for_search.length != 0 %>
+                <ul class="list-group">
+                    <% @sections_for_search.each_with_index do |s, i| %>
+                        <% count = 0 %>
+                        <div class="row">
+                        <button class="list-group-item d-flex justify-content-between
+                        align-items-center list-group-item-action btn font-weight-bold col-10"
+                        type="button" data-toggle="collapse" data-target="#collapse_<%=i%>">
+                            <h4><%=s['displayName']%></h4>
+                        </button>
+                         <%= link_to "Elimina Materia", s['links']['oneNoteWebUrl']['href'],id: "elimina_materia", class: "btn-danger btn-sm col-2", target: "_blank"%>
+                        </div>
+                        <%# link_to "Elimina Materia", "/notes/destroy_section/#{s['id']}", method: :destroy_section, class: "btn-danger btn-sm"%>
+                        <div class="collapse" id="collapse_<%=i%>">
+                            <div class="card card-body">
+                                <ul class="list-group">
+                                    <% if @notes.length != 0 %>
+                                        <% @notes.each do |n| %>
+                                            <% if n['parentSection']['displayName'] == s['displayName']%>
+                                                <% count = count + 1 %>
+                                                <li class="list-group-item">
+                                                    <h5><%=n['title']%></h5>
+                                                    <%= link_to "Apri", n['links']['oneNoteWebUrl']['href'], class: "btn btn-info btn-sm"%>
+                                                    <%= link_to "Apri in una nuova pagina", n['links']['oneNoteWebUrl']['href'], class: "btn btn-info btn-sm", target: "_blank"%>
+                                                    <%= link_to "Apri Materia", n['parentSection']['links']['oneNoteWebUrl']['href'], class: "btn btn-secondary btn-sm", target: "_blank"%>
+                                                    <%= link_to "Elimina", note_path(n['id']), method: :delete, class: "btn btn-danger btn-sm"%>
+                                                </li>
+                                            <% end %>
+                                        <%end%>
+                                        <% if count == 0%>
+                                            <div class="text-center">
+                                                <p style="text-align: center; font-weight: bold; font-size: 1rem">Non ci sono note per questa materia.</p>
+                                                <%= link_to "Crea nuova Nota", new_note_path, class: "btn btn-secondary btn-lg col-4 choice_button"%>
+                                            </div>
+                                        <% end %>
+                                    <% else %>
+                                    <div class="text-center">
+                                        <p style="text-align: center; font-weight: bold; font-size: 1rem">Nessuna nota con il nome cercato in questa materia.</p>
+                                        <%= link_to "Crea nuova Nota", new_note_path, class: "btn btn-secondary btn-lg col-4 choice_button"%>
+                                    </div>
+                                    <% end %>
+                                </ul>
+                            </div>
+                        </div>
+                    <%end%>
+                </ul>
+            <% else %>
+                    <div class="text-center">
+                        <p style="text-align: center; color: white; font-weight: bold; font-size: 2rem">Nessuna materia con il nome cercato.</p>
+                        <%= link_to "Crea nuova Materia", new_note_path, class: "btn btn-secondary btn-lg col-4 choice_button"%>
+                    </div>
+            <% end %>
+        </div>
+    </div>
+</body>

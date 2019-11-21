@@ -1,0 +1,8 @@
+<% if @lessons.present? %>
+	<% @lessons.each do |l| %>
+		<p><%= l %></p>
+	<% end %>
+<% else %>
+	<p>Non ci sono lezioni</p>
+<% end %>
+<%= icon('fas', 'angle-left fa-3x', style: 'color: white; margin-bottom: 1rem;', id: 'backButton') %>

@@ -1,0 +1,21 @@
+<body class="notes_body">
+    <div class="container text-center" id="background">
+        <% flash.each do |key, value| %>
+			<div class="<%= flash_class(key) %>">
+				<%= value %>
+			</div>
+		<% end %>
+        <%= form_tag(notes_create_section_path, :method => "get", class: "form jumbotron") do %>
+            <%= label_tag(:section, "Nuova Materia:") %>
+            <%= text_field_tag(:section, nil, class: "form-control col-4 text_field") %>
+            <%= submit_tag("Crea", class: "btn btn-secondary btn-lg add_button") %>
+        <% end %>
+        <%= form_tag(notes_create_page_path, :method => "get", class: "form jumbotron", style: "margin-top: 2rem") do %>
+            <%= label_tag(:page, "Titolo Nuova Nota:") %>
+            <%= text_field_tag(:page, nil, class: "form-control col-4 text_field") %>
+            <%= label_tag("contenuta in:") %>
+            <%= select_tag(:selected_section, options_for_select(@sections_for_select.collect{|s| s["displayName"]}), class: "col-4 select_field") %>
+            <%= submit_tag("Crea", class: "btn btn-secondary btn-lg add_button") %>
+        <% end %>
+    </div>
+</body>

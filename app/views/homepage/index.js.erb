@@ -1,0 +1,6 @@
+$('#scheduleWindow').html("<%= j render(partial: 'index')%>")
+
+$('#backButton').on('click', function() {
+	$('#menuWindow').fadeIn(500);
+	$('#scheduleWindow').hide();
+})

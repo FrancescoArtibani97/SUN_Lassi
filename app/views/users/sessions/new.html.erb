@@ -1,0 +1,18 @@
+<body class="sign_in_body">
+  <div class="jumbotron" id="descrizione">
+    <h1 >Scrivi e salva i tuoi appunti su SUN e accedici su ogni dispositivo, ovunque tu sia!</h1>
+    <p>
+    &laquo; SUN è disegnata per studenti universitari che, grazie alla loro mail istituzionale, 
+    possono accedre gratuitamente a Micorsoft Office 365. Questo ti permette di utilizzare OneNote 
+    per prendere appunti direttamente all'interno dell'app. Inoltre potrai cercare tra i vari appunti 
+    quelli che ti interessano e tenere traccia dei tuoi orari e delle lezioni che segui.  &raquo;
+    </p>
+  </div>
+    
+  <div class="jumbotron" id="accedi">
+    <h3 style="margin-bottom: 1rem;">Ti vuoi registrare o sei già iscritto?</h3>
+    <% resource_class.omniauth_providers.each do |provider| %>
+      <%= button_to "Clicca qui per accedere con Microsoft", omniauth_authorize_path(resource_name, provider), class: "btn btn-secondary btn-large" %><br>
+    <% end %>
+  </div>
+</body>

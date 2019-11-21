@@ -1,0 +1,66 @@
+// Place all the styles related to the notes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the notes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.notes_body {
+    background-image: image-url('homepage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#background {
+    background-color: rgba(black, .6rem);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.jumbotron {
+    background-color: rgba(lightgrey, .5) !important;
+    padding: 2rem !important;
+}
+
+.input_filter {
+    border-radius: .6rem;
+}
+
+.text_field {
+    margin: auto;
+    display: block;
+}
+
+.select_field {
+    margin: auto;
+    display: block;
+}
+
+.add_button {
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#search_form {
+    margin-bottom: 4rem;
+}
+
+#show_notes_list {
+    margin-bottom: 2rem;
+}
+
+.choice_button {
+    width: 10rem;
+    font-size: 10rem;
+    margin-top: 2rem;
+}
+
+#elimina_materia {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    border-style: outset;
+    border-color: black;
+    padding-top: 1rem;
+}

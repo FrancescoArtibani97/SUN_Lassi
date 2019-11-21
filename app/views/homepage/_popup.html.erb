@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="myModalLabel">Scegli Materia</h4>
+	<%= icon('fas', 'times fa-2x', style: 'color: white; margin-bottom: 1rem;', id: 'closeModalButton') %>
+</div>
+<div class="modal-body">
+
+	<%= form_tag(homepage_index_path, :method => "get") do %>
+		<%= select_tag(:selected_course, options_for_select(@return.each), class: "select_field") %>
+		<%= submit_tag("Crea", class: "btn btn-secondary btn-lg add_button") %>
+	<% end %>
+
+</div>

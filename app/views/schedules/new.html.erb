@@ -1,0 +1,20 @@
+<body class="schedules_body">
+
+<%= form_for @enroll, url: schedules_path(@enroll), method: :post, html: { class: "form", id: "form_corso" } do |f| %>
+  
+  <div class = "form-group">
+    <label for="select_corso">Seleziona il corso che vuoi seguire:</label><br>
+    <%= f.select :materia, @materie, prompt: "Scegli un corso...", :class => "form-control", :id => "select_corso"%>
+  </div>
+
+  <%= f.submit "Aggiungi Corso", class: "btn btn-secondary"%>
+
+<%end%> 
+
+<% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>">
+            <%= value %>
+      </div>
+<% end %>
+
+</body>

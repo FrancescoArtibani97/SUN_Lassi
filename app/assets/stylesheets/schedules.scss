@@ -1,0 +1,33 @@
+// Place all the styles related to the schedules controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.schedules_body {
+    background-image: image-url('schedules.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.schedulesContainer {
+    border-radius: 1rem;
+    background-color: rgba(10,10,10, .4);
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem
+}
+
+#form_corso {
+    background-color: rgba(47, 45, 45, 0.7);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem
+}
+
+label{
+    color: white;
+    font-size: 2.5rem
+}
+
+#addLessonButton {
+    margin-bottom: 1rem;
+    margin-left: .5rem;
+    float: right;
+}

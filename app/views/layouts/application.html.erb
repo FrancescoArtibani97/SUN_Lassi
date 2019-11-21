@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SUN (Student University Notes)</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+  </head>
+
+  <body >
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container">
+        <%= link_to image_tag("sun.png", border: 0, alt: "SUN"), root_path%>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+		  aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <%= link_to "Homepage", homepage_index_path, class: "nav-link#{' active' if controller.controller_name == 'homepage'}" %>
+            </li>
+            <% if user_signed_in? %>
+              <li class="nav-item" data-turbolinks="false">
+                <%= link_to "Orari", schedules_path, class: "nav-link#{' active' if controller.controller_name == 'schedules'}" %>
+              </li>
+              <li class="nav-item" data-turbolinks="false">
+                <%= link_to "Appunti", notes_path, class: "nav-link#{' active' if controller.controller_name == 'notes'}" %>
+              </li>
+            <% end %>
+          </ul>
+          <ul class="navbar-nav justify-content-end">
+            <% if user_signed_in? %>
+				<li class="nav-item dropdown"  data-turbolinks="false">
+					<a class="nav-link dropdown-toggle active" href="#" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  <%= current_user.nome%>
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown" role="menu">
+					  <%= link_to "Profilo", accounts_path, class: "dropdown-item" %>
+					  <div class="dropdown-divider"></div>
+					  <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+					</div>
+				  </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+
+
+    <main role="main" class="container">
+      <% if @errors %>
+        <% @errors.each do |error| %>
+          <div class="alert alert-danger" role="alert">
+            <p class="mb-3"><%= error[:message] %></p>
+            <%if error[:debug] %>
+              <pre class="alert-pre border bg-light p-2"><code><%= error[:debug] %></code></pre>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+      <%= yield %>
+    </main>
+  </body>
+</html>

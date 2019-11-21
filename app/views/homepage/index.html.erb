@@ -1,0 +1,36 @@
+<body class="homepage_body">
+<div id="calendarContainer" >
+  <% if user_signed_in? %>
+    <div class="row">
+		<div class="col-10">
+			<% flash.each do |key, value| %>
+      			<div class="<%= flash_class(key) %>">
+            		<%= value %>
+      			</div>
+			<% end %>
+		</div>
+		<div class="col-2">
+			<%= link_to 'Appunti Veloci', {:action => :quickNotes} , class: "btn btn-secondary", style: "margin-bottom: .75rem;", id: "quickNote"%>
+		</div>
+	
+	<div id="calendar">
+	</div>
+	<div id="dayClickWindow" class="position-relative">
+		<div class="contentsWindow">
+			<h3> DATA GIORNO </h3>
+			<div id="menuWindow" class="list-group">
+				<%# link_to 'Visualizza appunti', schedules_path, class: "btn" %>
+				<%= link_to 'Visualizza orario', { :action => :getLesson }, class: "btn", id: "scheduleButton", remote: true %>
+				<%= icon('fas', 'times fa-2x', style: 'color: white; margin-bottom: 1rem;', id: 'closeButton') %>
+			</div>
+			<%= content_tag :div, class: 'list-group', id: 'scheduleWindow' do %> <% end %>
+		</div>
+	</div>
+	
+	<div id="modalWindow" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content"></div>
+		</div>
+  	<% end %>
+	</div>
+</body>

@@ -1,0 +1,40 @@
+<body class="schedules_body">
+<div class="schedulesContainer">
+
+    <%= link_to "Aggiungi Corso", new_schedule_path, class: "btn btn-secondary", id: "addLessonButton"%>
+    <%= link_to "Rimuovi Corso", delete_page_schedules_path, class: "btn btn-secondary", id: "addLessonButton"%>
+    
+    <% flash.each do |key, value| %>
+        <div class="<%= flash_class(key) %> fade show col-4">
+            <%= value %>
+        </div>
+    <% end %>
+
+	<table class="table table-dark table-bordered">
+		<thead>
+			<tr>
+				<% days = [ ' ','Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì'] %>
+				<% days.each do |d| %>
+					<th scope="col" class="col-2"><%= d %></th>
+				<% end %>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<% for i in 0..10 %>
+				<% k = 8 + i %>
+			
+				<tr>
+					<th scope="row" class="col-2"><%= k %>:00-<%= k+1 %>:00</th>
+					<% for j in 0..4 %>
+						<td class="col-2"><%= @userSchedule[i,j] %></td>
+					<% end %>
+				</tr>
+			
+			<% end %>
+		</tbody>
+	
+	</table>
+	
+</div>
+</body>

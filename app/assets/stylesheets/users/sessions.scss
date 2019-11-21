@@ -1,0 +1,21 @@
+@import 'bootstrap';
+
+.sign_in_body {
+   background-image: image-url('homepage.jpg');
+   background-color: rgb(0,0,0);
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+#descrizione {
+    border-radius: 1rem;
+    text-align: center;
+    background-color: rgba(lightgrey, .7);
+}
+
+#accedi {
+    border-radius: 1rem;
+    text-align: center;
+    background-color: rgba(lightgrey, .7);
+}
+

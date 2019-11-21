@@ -1,0 +1,32 @@
+#Databases setup
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: lassidb
+  host: localhost
+  database: <%= ENV['DB_DATABASE_DEVELOPMENT'] %>
+  pool: 5
+  timeout: 5000
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: lassidb
+  host: localhost
+  database: <%= ENV['DB_DATABASE_TEST'] %>
+  pool: 5
+  timeout: 5000
+production:
+  adapter: postgresql
+  encoding: unicode
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] %>
+  database: <%= ENV['DB_DATABASE_PRODUCTION'] %>
+  pool: 5
+  timeout: 5000
+
+cucumber:
+  <<: *test

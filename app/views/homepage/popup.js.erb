@@ -1,0 +1,4 @@
+$('#modalWindow').find('.modal-content').html("<%= j render(partial: 'popup')%>");
+$('#modalWindow').modal();
+
+$('#closeModalButton').attr("data-dismiss", 'modal');

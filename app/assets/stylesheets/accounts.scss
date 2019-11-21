@@ -1,0 +1,35 @@
+// Place all the styles related to the accounts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.accounts_body {
+    background-image: image-url('homepage.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.accountsContainer {
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    background-color: rgba(211,211,211,0.9);
+}
+
+.cardProfile {
+	width: 50%;
+	background-color: rgba(255,255,255,0.8);
+	margin: 0 auto;
+	padding: 1rem;
+	border-radius: .5rem;
+}
+
+.infos {
+	text-align: center;
+}
+
+.divider {
+	flex-grow: 1;
+	border-bottom: 1px solid;
+	margin: 2rem;
+	color: rgba(211,211,211,0.5);
+}
