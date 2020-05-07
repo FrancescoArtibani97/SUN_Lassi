@@ -120,4 +120,4 @@ gem 'font-awesome-sass', '~> 5.8.1'
 #composite_primary_keys
 gem 'composite_primary_keys'
 
-gem "doorkeeper", "~> 5.1"
+gem "doorkeeper", "~> 5.2"
